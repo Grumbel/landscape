@@ -43,7 +43,7 @@ function gen_segment(a, b, depth, midfunc) {
     return ary;
 }
 
-function draw_mountain(ctx, y, width, height) 
+function draw_mountain(ctx, y, width, height)
 {
     // get a heightmap
     var points = gen_segment(y + (Math.random() - 0.5) * height/3.0,
@@ -56,9 +56,9 @@ function draw_mountain(ctx, y, width, height)
     // draw the mountain
     ctx.beginPath();
     ctx.moveTo(0, height);
-    for(var i = 0; i < points.length; ++i) 
+    for(var i = 0; i < points.length; ++i)
     {
-        ctx.lineTo(width / (points.length-1) * i, 
+        ctx.lineTo(width / (points.length-1) * i,
                    points[i]);
     }
     ctx.lineTo(width, height);
@@ -68,7 +68,7 @@ function draw_mountain(ctx, y, width, height)
 
 function draw_starfield(ctx, width, height)
 {
-    for(var i = 0; i < 500; ++i) 
+    for(var i = 0; i < 500; ++i)
     {
         var gray = Math.ceil(Math.random() * 255);
         ctx.beginPath();
@@ -88,12 +88,12 @@ function draw_moon(ctx, width, height, color)
 
     var shadow_x = x + radius * (Math.random() - 0.5) * 3.0;
     var shadow_y = y + radius * (Math.random() - 0.5) * 3.0;
-    
+
     ctx.fillStyle = "rgb(" + Math.ceil(color[0]*0.8) + ", " + Math.ceil(color[1]*0.8) + ", " + Math.ceil(color[2]*0.8) + ")";
     ctx.beginPath();
-    ctx.arc(x, y, radius + 3.0, 
+    ctx.arc(x, y, radius + 3.0,
             0.0, 2 * Math.PI);
-    ctx.fill();   
+    ctx.fill();
 
     ctx.fillStyle = "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
     ctx.beginPath();
@@ -118,7 +118,7 @@ function draw_moon(ctx, width, height, color)
 }
 
 function draw(ctx, width, height)
-{    
+{
     var y = height / 2.0;
     var n = 32;
 
@@ -128,12 +128,12 @@ function draw(ctx, width, height)
     var color = [Math.ceil(Math.random() * 255),
                  Math.ceil(Math.random() * 255),
                  Math.ceil(Math.random() * 255)];
-    
+
     draw_starfield(ctx, width, height);
 
     draw_moon(ctx, width, height, color);
 
-    for(var i = 0; i < n; ++i) 
+    for(var i = 0; i < n; ++i)
     {
         var p = i/(n-1);
 
