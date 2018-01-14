@@ -23,6 +23,8 @@ function my_onload() {
     var ctx = canvas.getContext("2d");
 
     draw(ctx, canvas.width, canvas.height);
+
+    return false;
 }
 
 function gen_segment(a, b, depth, midfunc) {
